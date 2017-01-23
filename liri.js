@@ -16,10 +16,12 @@ inquirer.prompt([
 
 // If they are asking for "my-tweets" then it should pull my last 10 tweets from twitter 
 ]).then(function(info){
-	var MyTweets = new twitter();
+	userChoice = info.request;
 	if (userChoice === "my-tweets") {
+		console.log("this");
+		var MyTweets = new twitter();
 		// INSERT TWITTER API REQUEST HERE
-		MyTweets.newTweets()
+		MyTweets.Tweets()
 	// If i get "spotify-this-song" then it should return the Artist, song name, preview link, and album	
 	}else if (userChoice === "spotify-this-song") {
 		var SpotifyThis = new spotify();

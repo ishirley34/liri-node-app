@@ -1,0 +1,31 @@
+{
+  "name": "liri-node-app",
+  "version": "1.0.0",
+  "description": "fullfills requests depending on input",
+  "main": "liri.js",
+  "dependencies": {
+    "inquirer": "^2.0.0",
+    "request": "^2.79.0",
+    "spotify": "^0.3.0",
+    "twitter": "^1.7.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ishirley34/liri-node-app.git"
+  },
+  "keywords": [
+    "twitter",
+    "spotify",
+    "imdb"
+  ],
+  "author": "Ian Shirley",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ishirley34/liri-node-app/issues"
+  },
+  "homepage": "https://github.com/ishirley34/liri-node-app#readme"
+}

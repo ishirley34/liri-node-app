@@ -1,14 +1,16 @@
 // Calls in twitter API keys
-var apiKey =require("./keys.js");
-var twitter =require("twitter");
+var twitterKeys =require("./keys").twitterKeys;
+var Twitter =require("twitter");
 
-// Assigns twitter api keys
-var consumer_key = twitterKeys["consumer_key"];
-var consumer_secret = twitterKeys["consumer_secret"];
-var access_token_key = twitterKeys["access_token_key"];
-var access_token_secret = twitterKeys["access_token_secret"];
+
 
 function Tweets(){
+	// Assigns twitter api keys
+	var consumer_key = twitterKeys["consumer_key"];
+	var consumer_secret = twitterKeys["consumer_secret"];
+	var access_token_key = twitterKeys["access_token_key"];
+	var access_token_secret = twitterKeys["access_token_secret"];
+
 	var twitterClient = new Twitter({
 		consumer_key: consumer_key,
 		consumer_secret: consumer_secret,
@@ -22,7 +24,7 @@ function Tweets(){
 		}else {
 			var tweeters= "";
 			for (var i = 0; i < tweets.statuses.length; i++) {
-				tweets += "\n" + tweets.statuses[i].text + "\n";
+				tweeters += "\n" + tweets.statuses[i].text + "\n";
 			}
 			console.log(tweeters);
 		} // closes else
