@@ -1,5 +1,6 @@
 // Calls in twitter API keys
-var apiKey =require("./keys.js").twitterKeys;
+var apiKey =require("./keys.js");
+var twitter =require("twitter");
 
 // Assigns twitter api keys
 var consumer_key = twitterKeys["consumer_key"];
@@ -24,6 +25,6 @@ function Tweets(){
 				tweets += "\n" + tweets.statuses[i].text + "\n";
 			}
 			console.log(tweeters);
-		}
-	})
+		} // closes else
+	}); //closes twitterCleint.get
 } // closes MyTweets

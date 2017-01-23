@@ -12,14 +12,14 @@ inquirer.prompt([
 		name: "request",
 		message: "What would you like to do?",
 		choices: ["my-tweets", "spotify-this-song", "movie-this", "do-what-it-says"]
-	}
+	} // closes prompt
 
 // If they are asking for "my-tweets" then it should pull my last 10 tweets from twitter 
 ]).then(function(info){
 	var MyTweets = new twitter();
 	if (userChoice === "my-tweets") {
 		// INSERT TWITTER API REQUEST HERE
-
+		MyTweets.newTweets()
 	// If i get "spotify-this-song" then it should return the Artist, song name, preview link, and album	
 	}else if (userChoice === "spotify-this-song") {
 		var SpotifyThis = new spotify();
@@ -39,8 +39,8 @@ inquirer.prompt([
 
 			}else {
 				SpotifyThis.newSongSearch(songName);
-			}
-		});
+			} // closes else
+		}); // closes response
 
 	// If "movie-this" Then it shoudl return Title, year, IMDB rating, Origin Country, Language, Plot, cast, Rotten tomatoes rating, Rotten Tomatoes URL
 	// If no use given then it should return information for "Mr. Nobody"
@@ -59,8 +59,8 @@ inquirer.prompt([
 				MovieThis.newMovieSearch(movieName);
 			}else {
 				MovieThis.newMovieSearch(movieName);
-			}
-		});
+			} //closes else
+		}); //closes response
 
 	// If "do-what-it-says"then it should read from random.txt and do what is in the the file
 
@@ -71,7 +71,7 @@ inquirer.prompt([
 				console.log(err);
 			}else {
 				SpotifyThis.newSongSearch(songName);
-			}
-		});
-	}
-});
+			} // closes else
+		}); //closes readFile
+	} // closes if
+}); // closes info function
