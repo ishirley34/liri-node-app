@@ -19,8 +19,8 @@ inquirer.prompt([
 	var userChoice = info.request;
 	if (userChoice === "my-tweets") {
 		var MyTweets = new twitter();
-		// INSERT TWITTER API REQUEST HERE
-		MyTweets.Tweets()
+		// Calls the Tweets function from twitter.js
+		MyTweets.Tweets();
 	// If i get "spotify-this-song" then it should return the Artist, song name, preview link, and album	
 	}else if (userChoice === "spotify-this-song") {
 		var SpotifyThis = new spotify();
