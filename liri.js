@@ -16,9 +16,8 @@ inquirer.prompt([
 
 // If they are asking for "my-tweets" then it should pull my last 10 tweets from twitter 
 ]).then(function(info){
-	userChoice = info.request;
+	var userChoice = info.request;
 	if (userChoice === "my-tweets") {
-		console.log("this");
 		var MyTweets = new twitter();
 		// INSERT TWITTER API REQUEST HERE
 		MyTweets.Tweets()
