@@ -31,7 +31,7 @@ inquirer.prompt([
 			}
 		]).then(function(response) {
 			var songName = response.song;
-
+			var SongSearch = new spotify();
 			// If no song is given then it should default to "The Sign" - Ace of Base
 			if (songName === "") {
 				songName = "The Sign";

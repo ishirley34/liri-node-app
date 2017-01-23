@@ -32,4 +32,4 @@ function Tweets(){
 	}); //closes twitterCleint.get
 } // closes MyTweets
 // exports 
-module.exports=Tweets;
+module.exports = Tweets;

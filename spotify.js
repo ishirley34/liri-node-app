@@ -7,7 +7,7 @@ function SongSearch() {
     }
 	var song = SongName;
 // This runs the spotify query
-	getSong = function() {
+	this.getSong = function() {
 
 		console.log("this");
 		spotify.search({type: "track", query: song}, function(err, data) {
@@ -25,3 +25,4 @@ function SongSearch() {
 		}); //closes spotify.search
 	};
 } // Closes SongSearch
+module.exports = SongSearch;
