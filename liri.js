@@ -30,17 +30,16 @@ inquirer.prompt([
 				message: "Which song would you like to get information on?"
 			}
 		]).then(function(response) {
-			var SpotifyThis = new spotify();
 			var songName = response.song;
 
 			// If no song is given then it should default to "The Sign" - Ace of Base
 			if (songName === "") {
 				songName = "The Sign";
 				// This is going to point to the spotify file
-				SpotifyThis.newSongSearch();
+				SongSearch.getSong();
 
 			}else {
-				SpotifyThis.newSongSearch();
+				SongSearch.getSong();
 			} // closes else
 		}); // closes response
 
