@@ -34,7 +34,7 @@ inquirer.prompt([
 			var SpotifyThis = new Spotify();
 			// If no song is given then it should default to "The Sign" - Ace of Base
 			if (songName === "") {
-				songName = "The Sign";
+				songName = "The Sign - Ace of Base";
 				// This is going to point to the spotify file
 				SpotifyThis.getSong(songName);
 
@@ -66,12 +66,13 @@ inquirer.prompt([
 	// If "do-what-it-says"then it should read from random.txt and do what is in the the file
 
 	}else if (userChoice === "do-what-it-says") {
-		var SpotifyThis = new spotify();
-		var songName = fs.readFile("./random.txt", "utf8", function(err, data){
+		var SpotifyThis = new Spotify();
+		fs.readFile("random.txt", "utf8", function(err, data){
 			if (err) {
 				console.log(err);
 			}else {
-				SpotifyThis.newSongSearch(songName);
+				var songName = data;
+				SpotifyThis.getSong(songName);
 			} // closes else
 		}); //closes readFile
 	} // closes if
