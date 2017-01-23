@@ -20,7 +20,7 @@ inquirer.prompt([
 	if (userChoice === "my-tweets") {
 		var MyTweets = new twitter();
 		// Calls the Tweets function from twitter.js
-		MyTweets.Tweets();
+		MyTweets.newTweets();
 	// If i get "spotify-this-song" then it should return the Artist, song name, preview link, and album	
 	}else if (userChoice === "spotify-this-song") {
 		var SpotifyThis = new spotify();
