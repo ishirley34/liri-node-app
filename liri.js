@@ -23,7 +23,6 @@ inquirer.prompt([
 		MyTweets.newTweets();
 	// If i get "spotify-this-song" then it should return the Artist, song name, preview link, and album	
 	}else if (userChoice === "spotify-this-song") {
-		var SpotifyThis = new spotify();
 		inquirer.prompt([
 			{
 				type: "input",
@@ -31,15 +30,17 @@ inquirer.prompt([
 				message: "Which song would you like to get information on?"
 			}
 		]).then(function(response) {
+			var SpotifyThis = new spotify();
 			var songName = response.song;
+
 			// If no song is given then it should default to "The Sign" - Ace of Base
 			if (songName === "") {
 				songName = "The Sign";
 				// This is going to point to the spotify file
-				SpotifyThis.newSongSearch(songName);
+				SpotifyThis.newSongSearch();
 
 			}else {
-				SpotifyThis.newSongSearch(songName);
+				SpotifyThis.newSongSearch();
 			} // closes else
 		}); // closes response
 
