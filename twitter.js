@@ -18,14 +18,14 @@ function Tweets(){
 		access_token_secret: access_token_secret
 	}); // closes twitterClient
 
-	twitterClient.get("search/tweets", {q: "ishirley0516", count: 20}, 
+	twitterClient.get("statuses/user_timeline", {screen_name: "ishirley0516", count: 20}, 
 		function(err, tweets, response) {
 		if (err) {
 			console.log(err);
 		}else {
 			var tweeters= "";
-			for (var i = 0; i < tweets.statuses.length; i++) {
-				tweeters += "\n" + tweets.statuses[i].text + "\n";
+			for (var i = 0; i < 10; i++) {
+				tweeters += "\n" + tweets[i].text + "\n";
 			}
 			console.log(tweeters);
 		} // closes else
