@@ -18,7 +18,8 @@ function Tweets(){
 		access_token_secret: access_token_secret
 	}); // closes twitterClient
 
-	this.twitterClient.get("search/tweets", {q: "ishirley0516", count: 20}, function(err, tweets, response) {
+	twitterClient.get("search/tweets", {q: "ishirley0516", count: 20}, 
+		function(err, tweets, response) {
 		if (err) {
 			console.log(err);
 		}else {
@@ -30,4 +31,5 @@ function Tweets(){
 		} // closes else
 	}); //closes twitterCleint.get
 } // closes MyTweets
+// exports 
 module.exports=Tweets
