@@ -24,8 +24,8 @@ function Tweets(){
 			console.log(err);
 		}else {
 			var tweeters= "";
-			for (var i = 0; i < 10; i++) {
-				tweeters += "\n" + tweets[i].text + "\n";
+			for (var i = 0; i < 20; i++) {
+				tweeters += "\n" + tweets[i].text + tweets[i].created_at +"\n";
 			}
 			console.log(tweeters);
 		} // closes else

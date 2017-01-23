@@ -2,9 +2,9 @@
 // I need to take in the user's input and determine what they are asking for
 var inquirer =require("inquirer");
 var Spotify =require("./spotify");
-var omdb =require("./omdb");
+var Omdb =require("./omdb.js");
 var fs =require("fs");
-var twitter =require("./twitter")
+var twitter =require("./twitter");
 // This asks the user what they would like to do in a list format
 inquirer.prompt([
 	{
@@ -17,10 +17,10 @@ inquirer.prompt([
 // If they are asking for "my-tweets" then it should pull my last 10 tweets from twitter 
 ]).then(function(info){
 	var userChoice = info.request;
+	// Calls the Tweets function from twitter.js
 	if (userChoice === "my-tweets") {
 		var MyTweets = new twitter();
-		// Calls the Tweets function from twitter.js
-		MyTweets.newTweets();
+		
 	// If i get "spotify-this-song" then it should return the Artist, song name, preview link, and album	
 	}else if (userChoice === "spotify-this-song") {
 		inquirer.prompt([
@@ -46,7 +46,6 @@ inquirer.prompt([
 	// If "movie-this" Then it shoudl return Title, year, IMDB rating, Origin Country, Language, Plot, cast, Rotten tomatoes rating, Rotten Tomatoes URL
 	// If no use given then it should return information for "Mr. Nobody"
 	}else if (userChoice === "movie-this") {
-		var MovieThis = new omdb();
 		inquirer.prompt([
 			{
 				type: "input",
@@ -54,25 +53,40 @@ inquirer.prompt([
 				message: "Which movie would you like information on?"
 			}
 		]).then(function(response) {
+			var MovieThis = new Omdb();
 			var movieName = response.movie;
 			if (movieName === "") {
 				movieName = "Mr Nobody";
-				MovieThis.newMovieSearch(movieName);
+				MovieThis.getMovie(movieName);
 			}else {
-				MovieThis.newMovieSearch(movieName);
+				MovieThis.getMovie(movieName);
 			} //closes else
 		}); //closes response
 
 	// If "do-what-it-says"then it should read from random.txt and do what is in the the file
 
 	}else if (userChoice === "do-what-it-says") {
-		var SpotifyThis = new Spotify();
 		fs.readFile("random.txt", "utf8", function(err, data){
 			if (err) {
 				console.log(err);
 			}else {
-				var songName = data;
-				SpotifyThis.getSong(songName);
+				var randomArray = data.split(",");
+      			var command = randomArray[0].split(" ");
+      			var request = randomArray[1];
+      			console.log(randomArray);
+      			console.log(request);
+
+      			switch(command[0]){
+        			case "spotify-this-song":
+          				var SpotifyThis = new Spotify();
+          				var songName = request;
+          				SpotifyThis.getSong(songName);
+        			break;
+        			case "movie-this":
+        				var MovieThis = new Omdb();
+        				var movieName = request;
+        				MovieThis.MovieSearch(movieName);
+        		};
 			} // closes else
 		}); //closes readFile
 	} // closes if

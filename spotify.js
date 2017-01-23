@@ -5,6 +5,7 @@ function SongSearch(songName) {
     if (!(this instanceof SongSearch)) {
         return new SongSearch();
     }
+    this.songName= songName;
 
 // This runs the spotify query
 	this.getSong = function(songName) {
