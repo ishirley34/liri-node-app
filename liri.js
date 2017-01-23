@@ -1,7 +1,7 @@
 "use strict";
 // I need to take in the user's input and determine what they are asking for
 var inquirer =require("inquirer");
-var spotify =require("./spotify");
+var Spotify =require("./spotify");
 var omdb =require("./omdb");
 var fs =require("fs");
 var twitter =require("./twitter")
@@ -31,15 +31,15 @@ inquirer.prompt([
 			}
 		]).then(function(response) {
 			var songName = response.song;
-			var SpotifyThis = new spotify();
+			var SpotifyThis = new Spotify();
 			// If no song is given then it should default to "The Sign" - Ace of Base
 			if (songName === "") {
 				songName = "The Sign";
 				// This is going to point to the spotify file
-				SpotifyThis.newSongSearch();
+				SpotifyThis.getSong(songName);
 
 			}else {
-				SpotifyThis.newSongSearch();
+				SpotifyThis.getSong(songName);
 			} // closes else
 		}); // closes response
 

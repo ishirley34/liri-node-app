@@ -7,9 +7,8 @@ function SongSearch(songName) {
     }
 
 // This runs the spotify query
-	getSong = function() {
-
-		console.log("this");
+	this.getSong = function() {
+		console.log(songName);
 		spotify.search({type: "track", query: songName}, function(err, data) {
 			if (err) {
 				console.log(err);
