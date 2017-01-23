@@ -86,7 +86,8 @@ inquirer.prompt([
         				var MovieThis = new Omdb();
         				var movieName = request;
         				MovieThis.MovieSearch(movieName);
-        		};
+        			break;
+        		}// closes switch
 			} // closes else
 		}); //closes readFile
 	} // closes if

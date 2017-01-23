@@ -6,7 +6,7 @@ function MovieSearch(movieName) {
         return new MovieSearch();
     }
 	this.movieName = movieName;
-
+	// This sends te query to OMDB then takes that parts of the response that we want
 	this.getMovie = function(movieName) {
 		var queryURL = 'http://www.omdbapi.com/?t=' + movieName + "&r=json&tomatoes=true";
 		request(queryURL, function(err, response, body) {
@@ -45,3 +45,4 @@ function MovieSearch(movieName) {
 		console.log(movieName);
 	} //Closes getmovie
 }; // Closes MovieName
+module.exports = MovieSearch
