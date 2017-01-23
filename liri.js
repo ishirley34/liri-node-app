@@ -36,10 +36,10 @@ inquirer.prompt([
 			if (songName === "") {
 				songName = "The Sign";
 				// This is going to point to the spotify file
-				SongSearch.getSong();
+				SongSearch.newgetSong();
 
 			}else {
-				SongSearch.getSong();
+				SongSearch.newgetSong();
 			} // closes else
 		}); // closes response
 

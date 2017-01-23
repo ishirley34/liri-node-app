@@ -1,16 +1,16 @@
 var Spotify =require("spotify");
 // Runs the song search function
-function SongSearch() {
+function songSearch(songName) {
 	// This checks to make sure that the new user is a instance of SongSearch
     if (!(this instanceof SongSearch)) {
         return new SongSearch();
     }
-	var song = SongName;
+
 // This runs the spotify query
-	this.getSong = function() {
+	// getSong = function() {
 
 		console.log("this");
-		spotify.search({type: "track", query: song}, function(err, data) {
+		spotify.search({type: "track", query: songName}, function(err, data) {
 			if (err) {
 				console.log(err);
 			}else {
@@ -23,6 +23,6 @@ function SongSearch() {
 				logInfo(info);
 			}
 		}); //closes spotify.search
-	};
+	// };
 } // Closes SongSearch
-module.exports = SongSearch;
+module.exports = songSearch;
