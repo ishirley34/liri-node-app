@@ -4,6 +4,7 @@ var inquirer =require("inquirer");
 var spotify =require("./spotify");
 var omdb =require("./omdb");
 var fs =require("fs");
+var twitter =require("./twitter")
 // This asks the user what they would like to do in a list format
 inquirer.prompt([
 	{
@@ -15,7 +16,7 @@ inquirer.prompt([
 
 // If they are asking for "my-tweets" then it should pull my last 10 tweets from twitter 
 ]).then(function(info){
-	var userChoice = info.request;
+	var MyTweets = new twitter();
 	if (userChoice === "my-tweets") {
 		// INSERT TWITTER API REQUEST HERE
 
