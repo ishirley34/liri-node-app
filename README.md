@@ -12,3 +12,5 @@ spotify-this-song will show information on a song you choose. if left blank it w
 movie-this will return information on a movie of your choice, if left blank it will default to Mr. Nobody
 
 And do-what-it-says should read from random.txt and do what is in the the file
+
+Testing code
