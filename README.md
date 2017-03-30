@@ -1,6 +1,9 @@
 # liri-node-app
 
-Before you begin you need to get twitter api keys from twitter and place them in keys.example.js and rename the file to keys.js
+Before you begin you need clone the repo to your computer and to get twitter api keys from twitter and place them in keys.example.js and rename the file to keys.js
+
+Next run NPM install then run liri.js using Node and follow the prompts.
+
 
 
 This is a CLI that will prompt you to choose 1 of 4 things.
